@@ -1,28 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\\u041D\u041B\u0422\u0423\\\u0406\u0421\u0422\u0421-21\\\u041C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\ITBus\\ITBus\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|c:\\users\\pc\\desktop\\\u043D\u043B\u0442\u0443\\\u0456\u0441\u0442\u0441-21\\\u043C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\itbus\\itbus\\controlers\\models\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:controlers\\models\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|c:\\users\\pc\\desktop\\\u043D\u043B\u0442\u0443\\\u0456\u0441\u0442\u0441-21\\\u043C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\itbus\\itbus\\controlers\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:controlers\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|c:\\users\\pc\\desktop\\\u043D\u043B\u0442\u0443\\\u0456\u0441\u0442\u0441-21\\\u043C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\itbus\\itbus\\itbus.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:itbus.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|c:\\users\\pc\\desktop\\\u043D\u043B\u0442\u0443\\\u0456\u0441\u0442\u0441-21\\\u043C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\itbus\\itbus\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|c:\\users\\pc\\desktop\\\u043D\u043B\u0442\u0443\\\u0456\u0441\u0442\u0441-21\\\u043C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\itbus\\itbus\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    }
-  ],
+  "WorkspaceRootPath": "D:\\GitHub_Desktop\\ITBus\\ITBus\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -30,86 +9,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Seat.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\\u041D\u041B\u0422\u0423\\\u0406\u0421\u0422\u0421-21\\\u041C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\ITBus\\ITBus\\controlers\\models\\Seat.cs",
-              "RelativeDocumentMoniker": "controlers\\models\\Seat.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\\u041D\u041B\u0422\u0423\\\u0406\u0421\u0422\u0421-21\\\u041C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\ITBus\\ITBus\\controlers\\models\\Seat.cs",
-              "RelativeToolTip": "controlers\\models\\Seat.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T23:35:20.122Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Route.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\\u041D\u041B\u0422\u0423\\\u0406\u0421\u0422\u0421-21\\\u041C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\ITBus\\ITBus\\controlers\\models\\Route.cs",
-              "RelativeDocumentMoniker": "controlers\\models\\Route.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\\u041D\u041B\u0422\u0423\\\u0406\u0421\u0422\u0421-21\\\u041C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\ITBus\\ITBus\\controlers\\models\\Route.cs",
-              "RelativeToolTip": "controlers\\models\\Route.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T23:35:02.987Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\\u041D\u041B\u0422\u0423\\\u0406\u0421\u0422\u0421-21\\\u041C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\ITBus\\ITBus\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\\u041D\u041B\u0422\u0423\\\u0406\u0421\u0422\u0421-21\\\u041C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\ITBus\\ITBus\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T22:53:42.358Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\\u041D\u041B\u0422\u0423\\\u0406\u0421\u0422\u0421-21\\\u041C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\ITBus\\ITBus\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\\u041D\u041B\u0422\u0423\\\u0406\u0421\u0422\u0421-21\\\u041C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\ITBus\\ITBus\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-16T22:53:40.477Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ITBus.csproj",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\\u041D\u041B\u0422\u0423\\\u0406\u0421\u0422\u0421-21\\\u041C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\ITBus\\ITBus\\ITBus.csproj",
-              "RelativeDocumentMoniker": "ITBus.csproj",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\\u041D\u041B\u0422\u0423\\\u0406\u0421\u0422\u0421-21\\\u041C\u0435\u043D\u0434\u0436\u043C\u0435\u043D\u0442 \u043F\u0440\u043E\u0454\u043A\u0442\u0456\u0432 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u0435\u043F\u0435\u0447\u0435\u043D\u043D\u044F\\ITBus\\ITBus\\ITBus.csproj",
-              "RelativeToolTip": "ITBus.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-12-16T22:53:35.224Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 200,
           "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             }
           ]
         }
