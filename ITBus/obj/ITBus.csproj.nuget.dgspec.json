@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "X:\\sadasdasdasd\\ITBus\\ITBus\\ITBus.csproj": {}
+    "D:\\GitHub_Desktop\\ITBus\\ITBus\\ITBus.csproj": {}
   },
   "projects": {
-    "X:\\sadasdasdasd\\ITBus\\ITBus\\ITBus.csproj": {
+    "D:\\GitHub_Desktop\\ITBus\\ITBus\\ITBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "X:\\sadasdasdasd\\ITBus\\ITBus\\ITBus.csproj",
+        "projectUniqueName": "D:\\GitHub_Desktop\\ITBus\\ITBus\\ITBus.csproj",
         "projectName": "ITBus",
-        "projectPath": "X:\\sadasdasdasd\\ITBus\\ITBus\\ITBus.csproj",
-        "packagesPath": "C:\\Users\\trega\\.nuget\\packages\\",
-        "outputPath": "X:\\sadasdasdasd\\ITBus\\ITBus\\obj\\",
+        "projectPath": "D:\\GitHub_Desktop\\ITBus\\ITBus\\ITBus.csproj",
+        "packagesPath": "C:\\Users\\nazar\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub_Desktop\\ITBus\\ITBus\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "X:\\VS(SDK)\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\trega\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nazar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
