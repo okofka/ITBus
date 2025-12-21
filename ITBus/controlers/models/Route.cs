@@ -1,4 +1,4 @@
-﻿namespace ITBus.Controlers.Models
+﻿namespace ITBus.Models
 {
     public class Route
     {

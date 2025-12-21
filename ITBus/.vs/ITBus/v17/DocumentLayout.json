@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "D:\\GitHub_Desktop\\ITBus\\ITBus\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\controlers\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:controlers\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\controlers\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:controlers\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\controlers\\routecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:controlers\\routecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\controlers\\models\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:controlers\\models\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\controlers\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:controlers\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\controlers\\seatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:controlers\\seatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\controlers\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:controlers\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,39 +54,104 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "SeatController.cs",
+              "DocumentMoniker": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\SeatController.cs",
+              "RelativeDocumentMoniker": "Controlers\\SeatController.cs",
+              "ToolTip": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\SeatController.cs",
+              "RelativeToolTip": "Controlers\\SeatController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T19:03:08.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RouteController.cs",
+              "DocumentMoniker": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\RouteController.cs",
+              "RelativeDocumentMoniker": "Controlers\\RouteController.cs",
+              "ToolTip": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\RouteController.cs",
+              "RelativeToolTip": "Controlers\\RouteController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T19:01:59.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\GitHub_Desktop\\ITBus\\ITBus\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "D:\\GitHub_Desktop\\ITBus\\ITBus\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-21T18:59:47.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\GitHub_Desktop\\ITBus\\ITBus\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\GitHub_Desktop\\ITBus\\ITBus\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-21T18:59:43.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T18:59:39.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Controlers\\Data\\AppDbContext.cs",
               "ToolTip": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Controlers\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-21T18:53:25.196Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Seat.cs",
               "DocumentMoniker": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\Models\\Seat.cs",
               "RelativeDocumentMoniker": "Controlers\\Models\\Seat.cs",
               "ToolTip": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\Models\\Seat.cs",
               "RelativeToolTip": "Controlers\\Models\\Seat.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-21T18:45:38.919Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Route.cs",
               "DocumentMoniker": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\Models\\Route.cs",
               "RelativeDocumentMoniker": "Controlers\\Models\\Route.cs",
               "ToolTip": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\Models\\Route.cs",
               "RelativeToolTip": "Controlers\\Models\\Route.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-21T18:45:33.087Z",
               "EditorCaption": ""
