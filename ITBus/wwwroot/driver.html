@@ -1,0 +1,504 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Водій - Пульт</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --primary-accent: #0d6efd;
+            --warning-accent: #ffc107;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
+            padding: 15px;
+        }
+
+        /* --- ВИПРАВЛЕННЯ КОЛЬОРІВ ТЕКСТУ --- */
+        .text-muted {
+            color: #adb5bd !important;
+        }
+
+        .form-select, .form-control {
+            background-color: #2c2c2c !important;
+            border: 1px solid #444 !important;
+            color: #ffffff !important;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 1.1rem;
+        }
+
+            .form-control::placeholder {
+                color: #bbb !important;
+                opacity: 1;
+            }
+
+        option {
+            background-color: #2c2c2c;
+            color: white;
+        }
+
+        .form-select:focus, .form-control:focus {
+            background-color: #333 !important;
+            color: white !important;
+            border-color: var(--primary-accent) !important;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+
+        .driver-container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+
+        h3, h4 {
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        /* Кнопки меню */
+        .menu-btn {
+            padding: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 16px;
+            border: none;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+            .menu-btn:active {
+                transform: scale(0.98);
+            }
+
+        .menu-icon {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+        }
+
+        .btn-control {
+            background: linear-gradient(135deg, #0d6efd, #0a58ca);
+            color: white;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+        }
+
+        .btn-boarding {
+            background: linear-gradient(135deg, #ffc107, #e0a800);
+            color: #212529;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+        }
+
+        .btn-main {
+            border-radius: 12px;
+            font-weight: 600;
+            padding: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-screen {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #reader {
+            width: 100%;
+            background: black;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #444;
+        }
+
+        /* Статус валідації */
+        .status-card {
+            padding: 30px;
+            text-align: center;
+            border-radius: 16px;
+            margin-top: 20px;
+            display: none;
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .bg-success-custom {
+            background: linear-gradient(135deg, #198754, #157347);
+        }
+
+        .bg-danger-custom {
+            background: linear-gradient(135deg, #dc3545, #bb2d3b);
+        }
+
+        #routeQrImage {
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .qr-container {
+            background: white;
+            padding: 15px;
+            border-radius: 16px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="driver-container">
+
+        <div id="screen-setup" class="section-screen" style="display: block;">
+            <div class="text-center mb-5 mt-2">
+                <i class="bi bi-bus-front text-primary" style="font-size: 3rem;"></i>
+                <h3 class="mt-3">Налаштування рейсу</h3>
+                <p class="text-secondary" style="color: #bbb !important;">Оберіть маршрут для початку зміни</p>
+            </div>
+
+            <div id="routeLoader" class="text-center py-5">
+                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"></div>
+                <div class="mt-3 text-muted">Завантаження...</div>
+            </div>
+
+            <div id="routeSelectArea" style="display:none;">
+                <label for="driverRouteSelect" class="form-label text-muted ms-1">Доступні маршрути</label>
+                <select id="driverRouteSelect" class="form-select form-select-lg mb-4 text-center fw-bold">
+                </select>
+                <button class="btn btn-success w-100 btn-main shadow-lg" onclick="confirmRoute()">
+                    РОЗПОЧАТИ РОБОТУ <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="screen-menu" class="section-screen">
+            <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom border-secondary">
+                <div>
+                    <h3 class="m-0">👋 Привіт!</h3>
+                    <div class="text-muted small mt-1">
+                        Маршрут: <span id="lblDriverRoute" class="badge bg-warning text-dark fs-6">...</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline-secondary btn-sm rounded-pill px-3" onclick="location.reload()">
+                    <i class="bi bi-box-arrow-right"></i> Вихід
+                </button>
+            </div>
+
+            <div class="d-grid gap-3">
+                <button class="menu-btn btn-control" onclick="openScanner()">
+                    <div class="menu-icon"><i class="bi bi-qr-code-scan"></i></div>
+                    <div class="d-flex flex-column">
+                        <span>Перевірка квитків</span>
+                        <span class="small opacity-75 fw-normal">Сканувати QR пасажира</span>
+                    </div>
+                </button>
+
+                <button class="menu-btn btn-boarding" onclick="openBoarding()">
+                    <div class="menu-icon"><i class="bi bi-people-fill"></i></div>
+                    <div class="d-flex flex-column">
+                        <span>Посадка пасажирів</span>
+                        <span class="small opacity-75 fw-normal">Показати QR маршруту</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div id="screen-scanner" class="section-screen">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="m-0"><i class="bi bi-qr-code me-2"></i>Контроль</h4>
+                <button class="btn btn-secondary btn-sm rounded-pill px-3" onclick="goHome()">
+                    <i class="bi bi-arrow-left me-1"></i> Меню
+                </button>
+            </div>
+
+            <div id="scanArea">
+                <div id="reader" class="mb-3"></div>
+                <p class="text-center text-muted small"><i class="bi bi-arrows-move me-1"></i>Наведіть камеру на квиток</p>
+            </div>
+
+            <div id="validationResult" class="status-card text-white shadow">
+                <div class="mb-3">
+                    <i id="valIcon" class="bi bi-check-circle-fill" style="font-size: 4rem;"></i>
+                </div>
+                <h2 id="valTitle" class="fw-bold mb-2"></h2>
+                <p id="valMsg" class="fs-5 opacity-75"></p>
+                <button class="btn btn-light w-100 mt-3 py-3 fw-bold text-uppercase rounded-pill" onclick="resetScannerUI()">Наступний пасажир</button>
+            </div>
+
+            <div id="manualInput" class="mt-4 border-top border-secondary pt-3 text-center">
+                <span class="text-primary small fw-bold" style="cursor: pointer;" onclick="toggleManual()">
+                    <i class="bi bi-keyboard me-1"></i> Не сканується? Ввести вручну
+                </span>
+                <div id="manualForm" class="mt-3 p-3 bg-dark rounded-3 border border-secondary" style="display:none;">
+                    <input type="text" id="mTicket" class="form-control mb-2 text-center" placeholder="ID квитка">
+                    <input type="number" id="mSeat" class="form-control mb-3 text-center" placeholder="Місце">
+                    <button class="btn btn-warning w-100 fw-bold" onclick="manualCheck()">Перевірити</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-boarding" class="section-screen text-center">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="m-0"><i class="bi bi-geo-alt me-2"></i>Посадка</h4>
+                <button class="btn btn-secondary btn-sm rounded-pill px-3" onclick="goHome()">
+                    <i class="bi bi-arrow-left me-1"></i> Меню
+                </button>
+            </div>
+
+            <div class="text-start mb-2">
+                <label class="text-muted small ms-1">Поточна зупинка:</label>
+            </div>
+            <select id="stopSelector" class="form-select form-select-lg mb-4 text-center fw-bold" onchange="generateRouteQR()">
+            </select>
+
+            <div class="qr-container shadow">
+                <img id="routeQrImage" src="" alt="QR" width="220" height="220">
+            </div>
+
+            <div class="mt-4 p-3 rounded bg-dark border border-warning border-opacity-25">
+                <p class="m-0 text-warning small">
+                    <i class="bi bi-info-circle me-1"></i>
+                    Пасажир сканує цей код,<br>щоб купити квиток саме з цієї зупинки.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const html5QrCode = new Html5Qrcode("reader");
+        let isScanning = false;
+        let activeRouteId = "";
+
+        // --- ГОЛОВНА ЛОГІКА ЗАВАНТАЖЕННЯ ---
+        window.onload = async function () {
+            try {
+                // 1. Спробуємо отримати дані з сервера
+                const res = await fetch('/api/route/list');
+
+                if (!res.ok) {
+                    throw new Error(`Помилка сервера: ${res.status}`);
+                }
+
+                const routes = await res.json();
+
+                // Якщо маршрути прийшли порожні, скажемо про це
+                if (!routes || routes.length === 0) {
+                    console.warn("API повернув порожній список маршрутів.");
+                    alert("У базі даних немає маршрутів!");
+                }
+
+                fillRoutes(routes);
+
+            } catch (e) {
+                console.error("Помилка при завантаженні маршрутів:", e);
+                alert("Не вдалося підключитися до сервера. Перевірте, чи запущена програма ITBus.exe");
+            }
+        };
+
+        function fillRoutes(routes) {
+            const select = document.getElementById('driverRouteSelect');
+            select.innerHTML = ''; // Очищаємо список
+
+            routes.forEach(r => {
+                const opt = document.createElement('option');
+                opt.value = r.number;
+                // Формуємо текст опції
+                opt.innerText = `№ ${r.number} (${r.name})`;
+                select.appendChild(opt);
+            });
+
+            // Ховаємо спінер, показуємо вибір
+            document.getElementById('routeLoader').style.display = 'none';
+            document.getElementById('routeSelectArea').style.display = 'block';
+        }
+
+        // --- ЛОГІКА ІНТЕРФЕЙСУ ---
+        function confirmRoute() {
+            activeRouteId = document.getElementById('driverRouteSelect').value;
+            if (!activeRouteId) { alert('Оберіть маршрут'); return; }
+            document.getElementById('lblDriverRoute').innerText = activeRouteId;
+            showScreen('screen-menu');
+        }
+
+        function showScreen(id) {
+            document.querySelectorAll('.section-screen').forEach(el => el.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function goHome() {
+            stopScanner();
+            showScreen('screen-menu');
+        }
+
+        async function openBoarding() {
+            if (!activeRouteId) { alert("Оберіть маршрут!"); return; }
+            showScreen('screen-boarding');
+
+            try {
+                const res = await fetch(`/api/route?routeNumber=${encodeURIComponent(activeRouteId)}`);
+                if (!res.ok) throw new Error("Помилка сервера");
+                const data = await res.json();
+
+                const selector = document.getElementById('stopSelector');
+                selector.innerHTML = '';
+
+                // Заповнюємо список зупинок
+                if (data.stops && Array.isArray(data.stops)) {
+                    data.stops.forEach(stop => {
+                        const opt = document.createElement('option');
+                        opt.value = stop;
+                        opt.innerText = stop;
+                        selector.appendChild(opt);
+                    });
+                }
+
+                generateRouteQR();
+            } catch (e) {
+                console.error(e);
+                alert("Не вдалося завантажити зупинки.");
+            }
+        }
+
+        function generateRouteQR() {
+            const stop = document.getElementById('stopSelector').value;
+            const link = `${window.location.origin}/index.html?action=pay&stop=${encodeURIComponent(stop)}&route=${activeRouteId}`;
+            document.getElementById('routeQrImage').src =
+                `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(link)}`;
+        }
+
+        function openScanner() {
+            showScreen('screen-scanner');
+            startScanner();
+        }
+
+        function startScanner() {
+            document.getElementById('scanArea').style.display = 'block';
+            document.getElementById('validationResult').style.display = 'none';
+            const config = { fps: 10, qrbox: { width: 250, height: 250 }, disableFlip: true };
+            html5QrCode.start({ facingMode: "environment" }, config, onScanSuccess)
+                .catch(err => console.error("Camera error", err));
+            isScanning = true;
+        }
+
+        function stopScanner() {
+            if (isScanning) {
+                html5QrCode.stop().then(() => { isScanning = false; }).catch(err => console.log(err));
+            }
+        }
+
+        function onScanSuccess(decodedText) {
+            html5QrCode.pause();
+
+            if (!decodedText.includes("ticket:")) {
+                return; // Ігноруємо не квиткові QR
+            }
+            try {
+                const parts = decodedText.split('|');
+                const tId = parts.find(p => p.startsWith('ticket:')).split(':')[1];
+                const sNum = parts.find(p => p.startsWith('seat:')).split(':')[1];
+                validateRequest(tId, sNum, activeRouteId);
+            } catch (e) {
+                showValidationResult(false, "Невірний формат QR");
+            }
+        }
+
+        async function validateRequest(tId, sNum, rNum) {
+            try {
+                const res = await fetch(`/api/seat/validate?ticketId=${tId}&seatNumber=${sNum}&routeNumber=${rNum}`, { method: 'POST' });
+                const data = await res.json();
+                showValidationResult(res.ok, res.ok ? data.message : (data.message || "Помилка"));
+            } catch (e) {
+                showValidationResult(false, "Помилка з'єднання");
+            }
+        }
+
+        function showValidationResult(isValid, msg) {
+            document.getElementById('scanArea').style.display = 'none';
+            const box = document.getElementById('validationResult');
+            const icon = document.getElementById('valIcon');
+            box.style.display = 'block';
+
+            if (isValid) {
+                box.className = "status-card bg-success-custom text-white shadow";
+                document.getElementById('valTitle').innerText = "✅ ВХІД ДОЗВОЛЕНО";
+                icon.className = "bi bi-check-circle-fill";
+            } else {
+                box.className = "status-card bg-danger-custom text-white shadow";
+                document.getElementById('valTitle').innerText = "❌ ВІДМОВА";
+                icon.className = "bi bi-x-circle-fill";
+            }
+            document.getElementById('valMsg').innerText = msg;
+        }
+
+        function resetScannerUI() {
+            document.getElementById('validationResult').style.display = 'none';
+            document.getElementById('scanArea').style.display = 'block';
+            html5QrCode.resume();
+        }
+
+        function toggleManual() {
+            const el = document.getElementById('manualForm');
+            el.style.display = el.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function manualCheck() {
+            const tId = document.getElementById('mTicket').value;
+            const sNum = document.getElementById('mSeat').value;
+            validateRequest(tId, sNum, activeRouteId);
+        }
+    </script>
+</body>
+</html>

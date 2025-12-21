@@ -2,18 +2,26 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Bus - Beta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Smart Bus</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
     <style>
+        /* --- ЗАГАЛЬНИЙ СТИЛЬ --- */
         body {
             background-color: #a569bd;
             color: white;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            font-family: sans-serif;
+            /* БЛОКУВАННЯ ВИДІЛЕННЯ ТЕКСТУ */
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .app-container {
@@ -22,46 +30,394 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 20px;
-            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-black {
-            background: black;
+            background-color: #000;
             color: white;
             border-radius: 10px;
             padding: 15px;
+            font-weight: bold;
+            border: 1px solid #444;
+            transition: 0.2s;
+        }
+
+            .btn-black:hover {
+                transform: scale(1.02);
+                color: #fff;
+            }
+
+        .route-item {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            text-align: left;
+            margin-bottom: 8px;
+            border-radius: 8px;
+        }
+
+            .route-item:hover {
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+            }
+
+        /* Сканер */
+        #reader {
             width: 100%;
-            border: none;
-            margin-bottom: 10px;
+            background: black;
+            border-radius: 10px;
+        }
+
+        /* Сітка місць */
+        .bus-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) 30px repeat(2, 1fr);
+            gap: 10px;
+            background: #333;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .seat {
+            height: 40px;
+            background-color: #28a745;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+            .seat.occupied {
+                background-color: #dc3545;
+                cursor: not-allowed;
+                opacity: 0.6;
+            }
+
+            .seat.selected {
+                background-color: #ffc107;
+                border: 2px solid white;
+                transform: scale(1.1);
+                color: black;
+            }
+
+        .aisle {
+            grid-column: 3;
+        }
+
+        .screen-section {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="app-container">
-        <h1>Smart Bus</h1>
-        <p>Швидко. Зручно.</p>
 
-        <div class="d-grid gap-3 mt-4">
-            <button class="btn btn-black" onclick="alert('Сканер ще в розробці!')">
-                📷 Сканувати QR водія
-            </button>
+        <div id="screen-menu" class="screen-section" style="display: block;">
+            <div class="text-center mt-5 mb-5">
+                <h1>Smart Bus</h1>
+                <p>Швидко. Зручно. Надійно.</p>
+            </div>
 
-            <button class="btn btn-black" onclick="showRoutes()">
-                📅 Бронювання
-            </button>
+            <div class="d-grid gap-3 mt-4">
+                <button class="btn btn-black btn-lg" onclick="openPassengerScanner()">
+                    📷 Сканувати QR водія
+                    <div class="small fw-light opacity-75">Оплата на місці</div>
+                </button>
+
+                <button class="btn btn-black btn-lg" onclick="goToRouteList()">
+                    📅 Бронювання
+                    <div class="small fw-light opacity-75">Замовити наперед</div>
+                </button>
+            </div>
         </div>
 
-        <div id="route-list" style="display:none; margin-top: 20px;">
-            <hr>
-            <h5>Доступні маршрути (Тест):</h5>
-            <button class="btn btn-outline-light w-100 mb-2">🚌 № 603 (Львів - Щирець)</button>
-            <button class="btn btn-outline-light w-100 mb-2">🚌 № 118 (Львів - Стрий)</button>
+        <div id="screen-scanner" class="screen-section">
+            <h4 class="mb-3 text-center">Наведіть на QR водія</h4>
+            <div id="reader"></div>
+            <p class="text-center small mt-3 text-white-50">Шукаємо дані маршруту...</p>
+            <button class="btn btn-outline-light w-100 mt-3" onclick="closeScanner()">Скасувати</button>
         </div>
+
+        <div id="screen-routes" class="screen-section">
+            <h4 class="mb-3 border-bottom pb-2">Оберіть маршрут</h4>
+            <div class="d-grid gap-2 overflow-auto" style="max-height: 500px;">
+            </div>
+            <button class="btn btn-outline-light mt-3 w-100" onclick="showScreen('screen-menu')">⬅ Назад</button>
+        </div>
+
+        <div id="screen-stops" class="screen-section">
+            <h4 class="mb-2">Маршрут <span id="lblRouteNumber" class="text-warning"></span></h4>
+            <p class="small text-white-50">Оберіть кінцеву зупинку:</p>
+            <div id="stopsList" class="d-grid gap-2"></div>
+            <button class="btn btn-outline-light mt-4 w-100" onclick="goBackToSource()">⬅ Назад</button>
+        </div>
+
+        <div id="screen-seats" class="screen-section">
+            <h4 class="text-center">Оберіть місце</h4>
+            <p class="text-center small">До: <span id="lblDestination" class="fw-bold"></span></p>
+            <div id="busGrid" class="bus-layout"></div>
+            <div class="mt-4 d-flex justify-content-between">
+                <button class="btn btn-outline-light" onclick="showScreen('screen-stops')">Назад</button>
+                <button id="btnPay" class="btn btn-black" disabled onclick="processPayment()">До сплати</button>
+            </div>
+        </div>
+
+        <div id="screen-ticket" class="screen-section text-center pt-5">
+            <div class="bg-white text-dark p-4 rounded shadow">
+                <h2 class="text-success mb-3">Оплата Успішна!</h2>
+                <div class="border-top border-bottom py-3 my-3">
+                    <img id="qrImage" src="" alt="QR" class="img-fluid" style="max-width: 200px;">
+                </div>
+                <h5>Місце № <span id="lblTicketSeat" class="fs-1 fw-bold"></span></h5>
+                <p class="text-muted">Відскануйте QR-код у водія</p>
+            </div>
+            <button class="btn btn-black mt-4 w-100" onclick="location.reload()">На головну</button>
+        </div>
+
     </div>
 
     <script>
-        function showRoutes() {
-            document.getElementById('route-list').style.display = 'block';
+        // --- ЗМІННІ ---
+        let currentRouteId = "603";
+        let currentStartStop = "Львів";
+        let selectedSeatNum = null;
+        let html5QrCode = null;
+
+        // --- АВТОМАТИЗАЦІЯ (Deep Linking) ---
+        window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const action = urlParams.get('action');
+            const stop = urlParams.get('stop');
+
+            if (action === 'pay' && stop) {
+                currentRouteId = "603";
+                currentStartStop = stop;
+                loadStopsAndShow();
+                window.history.replaceState({}, document.title, "/");
+            }
+        };
+
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen-section').forEach(el => el.style.display = 'none');
+            document.getElementById(screenId).style.display = 'block';
+        }
+
+        function goToRouteList() {
+            loadRoutesFromDb();
+            showScreen('screen-routes');
+        }
+
+        async function loadRoutesFromDb() {
+            const container = document.querySelector('#screen-routes .d-grid');
+            container.innerHTML = '<p class="text-white-50 text-center">Завантаження...</p>';
+
+            try {
+                const response = await fetch('/api/route/list');
+                const routes = await response.json();
+
+                container.innerHTML = '';
+
+                routes.forEach(route => {
+                    const btn = document.createElement('button');
+                    btn.className = 'btn route-item';
+                    btn.innerText = `🚌 № ${route.number} (${route.name})`;
+                    btn.onclick = () => selectRoute(route.number);
+                    container.appendChild(btn);
+                });
+            } catch (e) {
+                // FALLBACK ДЛЯ ДЕМО (ЯКЩО НЕМАЄ API)
+                container.innerHTML = '';
+                const demoRoutes = [{ number: "603", name: "Львів - Щирець" }, { number: "118", name: "Львів - Стрий" }];
+                demoRoutes.forEach(route => {
+                    const btn = document.createElement('button');
+                    btn.className = 'btn route-item';
+                    btn.innerText = `🚌 № ${route.number} (${route.name})`;
+                    btn.onclick = () => selectRoute(route.number);
+                    container.appendChild(btn);
+                });
+            }
+        }
+
+        function selectRoute(routeId) {
+            currentRouteId = routeId;
+            currentStartStop = "Львів";
+            loadStopsAndShow();
+        }
+
+        async function loadStopsAndShow() {
+            document.getElementById('lblRouteNumber').innerText = "№" + currentRouteId;
+            try {
+                const response = await fetch(`/api/route?currentStop=${encodeURIComponent(currentStartStop)}&routeNumber=${currentRouteId}`);
+                if (!response.ok) throw new Error("Маршрут не знайдено");
+                const data = await response.json();
+                renderStops(data.stops);
+            } catch (e) {
+                // FALLBACK ДЛЯ ДЕМО
+                renderStops(["Львів", "Наварія", "Пустомити", "Щирець"]);
+            }
+        }
+
+        function renderStops(stops) {
+            const container = document.getElementById('stopsList');
+            container.innerHTML = '';
+            stops.forEach((stop, index) => {
+                const isStart = index === 0;
+                const btn = document.createElement('button');
+                btn.className = `btn ${isStart ? 'btn-secondary disabled' : 'btn-outline-light'} text-start p-2`;
+                btn.innerHTML = isStart ? `🔘 ${stop} (Посадка)` : `🏁 ${stop}`;
+
+                if (!isStart) btn.onclick = () => goToSeatSelection(stop);
+                container.appendChild(btn);
+            });
+            showScreen('screen-stops');
+        }
+
+        function goBackToSource() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('action')) showScreen('screen-menu');
+            else showScreen('screen-routes');
+        }
+
+        async function goToSeatSelection(destination) {
+            document.getElementById('lblDestination').innerText = destination;
+            try {
+                const priceRes = await fetch(`/api/route/price?routeNumber=${currentRouteId}&from=${encodeURIComponent(currentStartStop)}&to=${encodeURIComponent(destination)}`);
+                const priceData = await priceRes.json();
+                window.currentPrice = priceData.price;
+            } catch (e) {
+                window.currentPrice = 50; // Демо ціна
+            }
+
+            // Демо місця
+            const seats = Array.from({ length: 20 }, (_, i) => ({ number: i + 1, isOccupied: Math.random() < 0.3 }));
+            renderBusGrid(seats);
+
+            document.getElementById('btnPay').disabled = true;
+            document.getElementById('btnPay').innerText = "Оберіть місце";
+            showScreen('screen-seats');
+        }
+
+        function renderBusGrid(seats) {
+            const grid = document.getElementById('busGrid');
+            grid.innerHTML = '';
+            seats.forEach((seat, index) => {
+                const div = document.createElement('div');
+                div.innerText = seat.number;
+                div.className = seat.isOccupied ? 'seat occupied' : 'seat';
+                if (!seat.isOccupied) div.onclick = () => selectSeat(seat.number, div);
+                grid.appendChild(div);
+                if ((index + 1) % 4 === 2) {
+                    const aisle = document.createElement('div');
+                    aisle.className = 'aisle';
+                    grid.appendChild(aisle);
+                }
+            });
+        }
+
+        function selectSeat(num, el) {
+            document.querySelectorAll('.seat.selected').forEach(s => s.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedSeatNum = num;
+
+            const btn = document.getElementById('btnPay');
+            btn.disabled = false;
+            btn.innerText = `Сплатити ${window.currentPrice} грн (Місце ${num})`;
+        }
+
+        async function processPayment() {
+            const btn = document.getElementById('btnPay');
+            const originalText = btn.innerText;
+
+            btn.innerText = "Обробка...";
+            btn.disabled = true;
+
+            try {
+                // 1. Відправляємо запит на сервер для бронювання
+                // Використовуємо POST, як це зазвичай робиться для створення записів
+                const res = await fetch(`/api/seat/book?seatNumber=${selectedSeatNum}&routeNumber=${currentRouteId}`, {
+                    method: 'POST'
+                });
+
+                // 2. Якщо сервер повернув помилку (наприклад, місце вже зайняте)
+                if (!res.ok) {
+                    const errData = await res.json();
+                    alert(errData.message || "Не вдалося забронювати місце. Можливо, воно вже зайняте.");
+
+                    // Повертаємо кнопку до початкового стану
+                    btn.disabled = false;
+                    btn.innerText = originalText;
+
+                    // Оновлюємо сітку місць, щоб показати зайняті
+                    goToSeatSelection(document.getElementById('lblDestination').innerText);
+                    return;
+                }
+
+                // 3. Отримуємо РЕАЛЬНИЙ ID квитка від сервера
+                const data = await res.json();
+
+                // data.ticketId - це те, що повертає твій C# контролер (Guid)
+                const realTicketId = data.ticketId;
+
+                // 4. Генеруємо QR з РЕАЛЬНИМ ID
+                document.getElementById('lblTicketSeat').innerText = selectedSeatNum;
+
+                // Формуємо рядок: ticket:GUID|seat:15|route:603
+                const qrData = `ticket:${realTicketId}|seat:${selectedSeatNum}|route:${currentRouteId}`;
+
+                console.log("Згенеровано QR:", qrData); // Для відладки в консолі
+
+                document.getElementById('qrImage').src =
+                    `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}`;
+
+                // Показуємо екран квитка
+                showScreen('screen-ticket');
+
+            } catch (e) {
+                console.error("Помилка оплати:", e);
+                alert("Помилка з'єднання з сервером. Спробуйте ще раз.");
+                btn.disabled = false;
+                btn.innerText = originalText;
+            }
+        }
+
+        function openPassengerScanner() {
+            showScreen('screen-scanner');
+            html5QrCode = new Html5Qrcode("reader");
+            const config = { fps: 10, qrbox: { width: 250, height: 250 }, disableFlip: true };
+            html5QrCode.start({ facingMode: "environment" }, config, onScanSuccess)
+                .catch(err => { alert("Камера недоступна"); showScreen('screen-menu'); });
+        }
+        function closeScanner() {
+            if (html5QrCode) html5QrCode.stop().then(() => { html5QrCode.clear(); showScreen('screen-menu'); });
+            else showScreen('screen-menu');
+        }
+        function onScanSuccess(decodedText) {
+            // Демо логіка
+            if (decodedText.includes("http")) {
+                window.location.href = decodedText;
+            } else {
+                alert("QR код розпізнано: " + decodedText);
+            }
+            closeScanner();
         }
     </script>
 </body>
