@@ -1,4 +1,4 @@
-﻿namespace ITBus.controlers.models
+﻿namespace ITBus.Controlers.Models
 {
     public class Seat
     {

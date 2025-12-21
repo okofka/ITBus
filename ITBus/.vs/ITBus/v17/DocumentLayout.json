@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\GitHub_Desktop\\ITBus\\ITBus\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\controlers\\models\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:controlers\\models\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|d:\\github_desktop\\itbus\\itbus\\controlers\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7423F0B3-D5D4-496F-920F-C5130E3440BE}|ITBus.csproj|solutionrelative:controlers\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +27,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Seat.cs",
+              "DocumentMoniker": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\Models\\Seat.cs",
+              "RelativeDocumentMoniker": "Controlers\\Models\\Seat.cs",
+              "ToolTip": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\Models\\Seat.cs",
+              "RelativeToolTip": "Controlers\\Models\\Seat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T18:45:38.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Route.cs",
+              "DocumentMoniker": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\Models\\Route.cs",
+              "RelativeDocumentMoniker": "Controlers\\Models\\Route.cs",
+              "ToolTip": "D:\\GitHub_Desktop\\ITBus\\ITBus\\Controlers\\Models\\Route.cs",
+              "RelativeToolTip": "Controlers\\Models\\Route.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T18:45:33.087Z",
+              "EditorCaption": ""
             }
           ]
         }
